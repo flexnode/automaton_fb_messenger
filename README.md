@@ -1,6 +1,4 @@
-# Automaton Facebook Messenger
-
-[![Build Status](https://semaphoreci.com/api/v1/tslim/automaton_fb_messenger/branches/master/shields_badge.svg)](https://semaphoreci.com/tslim/automaton_fb_messenger)
+# Automaton Facebook Messenger [![Build Status](https://semaphoreci.com/api/v1/tslim/automaton_fb_messenger/branches/master/shields_badge.svg)](https://semaphoreci.com/tslim/automaton_fb_messenger)
 
 [Automaton](https://github.com/flexnode/automaton) Adapter for Facebook Messenger
 
