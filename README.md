@@ -7,7 +7,8 @@
   ```elixir
   # In your config/config.exs file
   config :sample, Sample.Bot,
-    adapter: Automaton.FacebookMessenger.Adapter
+    adapter: Automaton.FacebookMessenger.Adapter,
+    access_token: "YOUR_PAGE_ACCESS_TOKEN"
   ```
 
 ## Installation
