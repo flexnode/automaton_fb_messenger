@@ -1,14 +1,15 @@
 defmodule Automaton.FacebookMessenger.API do
   use HTTPoison.Base
 
+  @api_url Application.get_env(:automaton_fb_messenger, :api_url)
+
   defp process_url(url) do
-    "https://graph.facebook.com/v2.6/me" <> url
+    "#{@api_url}/v2.6/me" <> url
   end
 
-  defp process_request_body(body) do
-    body
-    |> Poison.encode!
-  end
+  defp process_response_body(body), do: Poison.decode!(body)
+
+  defp process_request_body(body), do: Poison.encode!(body)
 
   defp process_request_headers(headers) do
     headers
@@ -17,7 +18,7 @@ defmodule Automaton.FacebookMessenger.API do
 
   defp format_standard_response(http_response) do
     case http_response do
-      {:ok, %HTTPoison.Response{body: %{"error": error}}} ->
+      {:ok, %HTTPoison.Response{body: %{"error" => error}}} ->
         {:error, error}
       {:ok, %HTTPoison.Response{status_code: 404}} ->
         {:error, "404 Not Found"}

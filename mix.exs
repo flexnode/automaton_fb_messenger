@@ -31,6 +31,7 @@ defmodule AutomatonFbMessenger.Mixfile do
      {:httpoison, "~> 0.12"},
      {:poison, "< 4.0.0"},
      {:excoveralls, "~> 0.7", only: :test},
+     {:bypass, "~> 0.8", only: :test},
      {:ex_doc, ">= 0.0.0", only: [:dev, :docs]}]
   end
 
