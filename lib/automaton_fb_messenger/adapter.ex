@@ -5,9 +5,18 @@ defmodule Automaton.FacebookMessenger.Adapter do
   @behaviour Automaton.Adapter
   alias Automaton.FacebookMessenger.API
 
+  def parse(response) when is_binary(response) do
+    response
+    |> Poison.decode
+    |> case do
+      {:ok, decoded_response} -> parse(decoded_response)
+      {:error, _} -> {:error, "unable to parse message"}
+      {:error, _, _} -> {:error, "unable to parse message"}
+    end
+  end
+
   def parse(response) do
     try do
-      response = Poison.decode!(response)
       %{"entry" => [%{"messaging" => [message]}]} = response
 
       sender_id = get_in(message, ["sender", "id"])
