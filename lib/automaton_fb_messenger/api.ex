@@ -1,7 +1,7 @@
 defmodule Automaton.FacebookMessenger.API do
   use HTTPoison.Base
 
-  @api_url Application.get_env(:automaton_fb_messenger, :api_url)
+  @api_url Application.get_env(:automaton_fb_messenger, :api_url) || "https://graph.facebook.com"
 
   defp process_url(url) do
     "#{@api_url}/v2.6/me" <> url

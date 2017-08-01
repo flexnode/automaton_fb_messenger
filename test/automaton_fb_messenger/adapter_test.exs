@@ -9,6 +9,8 @@ defmodule Automaton.FacebookMessenger.AdapterTest do
 
     test "returns error if fail to parse the response" do
       assert {:error, _message} = Adapter.parse("")
+      assert {:error, _message} = Adapter.parse(123)
+      assert {:error, _message} = Adapter.parse(%{})
     end
   end
 
